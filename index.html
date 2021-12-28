@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="search"><button onclick="dataSearch()">Search Database</button>
+
+    <table border='1' id="displayData">
+
+
+    </table>
+
+
+
+</body>
+
+<script>
+    var data = [{
+        name: 'Amit',
+        marks: 85,
+        status: 'Pass'
+    }, {
+        name: 'Ajeet',
+        marks: 95,
+        status: 'Pass'
+    }, {
+        name: 'Ritesh',
+        marks: 65,
+        status: 'Pass'
+    }, {
+        name: 'Akhilesh',
+        marks: 55,
+        status: 'Fail'
+    }, {
+        name: 'Sandeep',
+        marks: 45,
+        status: 'Fail'
+    }, {
+        name: 'Zaid',
+        marks: 87,
+        status: 'Pass'
+    }]
+
+
+
+    function dataSearch() {
+        var inputString = document.getElementById("search").value;
+
+        for (key in data) {
+            var filterData = "<tr><th>Name</th><th>Marks</th><th>Status</th></tr>"
+            if (data[key].name == inputString) {
+                filterData += "<tr><th>" + data[key].name + "</th><th>" + data[key].marks + "</th><th>" + data[key].status + "</th></tr>"
+            }
+        }
+
+        document.getElementById("displayData").innerHTML = filterData;
+        filterData = ""
+
+
+    }
+</script>
+
+</html>
